@@ -1,0 +1,70 @@
+/* 全体レイアウト */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #fff);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ログインボックス */
+.login-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 40px;
+  width: 360px;
+  text-align: center;
+}
+
+/* ロゴ */
+.login-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+/* 入力欄 */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ボタン */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-container button:hover {
+  background-color: #004d40;
+}
+
+/* 新規登録リンク */
+.register-link {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #00796b;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
