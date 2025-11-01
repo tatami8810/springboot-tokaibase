@@ -6,4 +6,5 @@ import com.example.tokaibase.entity.Role;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
 
+
 }
