@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<div th:replace="~{fragment :: meta}"></div>
+	<div th:replace="~{fragment :: styles}"></div>
   <title>ログイン画面</title>
   <style>
     /* 全体レイアウト */
     body {
+		
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to right, #e0f7fa, #fff);
       margin: 0;
@@ -78,7 +80,7 @@
   </style>
 </head>
 <body>
-
+	<div th:replace="~{fragment :: header}"></div>
   <div class="login-container">
     <div class="login-logo">TOKAIBASE</div>
     <form>
@@ -86,8 +88,10 @@
       <input type="password" placeholder="パスワード" required>
       <button type="submit">ログイン</button>
     </form>
-    <a href="#" class="register-link">新規登録はこちら</a>
+	<a th:href="@{/signup}">会員登録</a>
+	<div th:replace="~{fragment :: footer}"></div>
+	
   </div>
-
+  <div th:replace="~{fragment :: scripts}"></div>
 </body>
 </html>
