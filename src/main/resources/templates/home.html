@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>TOKAIBASE ホーム</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #e0f2f1, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #00796b;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 16px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .main {
+      padding: 40px;
+      text-align: center;
+    }
+
+    .main h2 {
+      color: #004d40;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 20px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TOKAIBASE</h1>
+  <nav>
+    <a th:href="@{/home}">ホーム</a>
+    <a th:href="@{/logout}">ログアウト</a>
+  </nav>
+</header>
+
+<div class="main">
+  <h2>ようこそ、TOKAIBASEへ！</h2>
+  <div class="cards">
+    <div class="card">キャンプ場を探す</div>
+    <div class="card">避難所を確認</div>
+    <div class="card">防災情報</div>
+    <div class="card">マイページ</div>
+  </div>
+</div>
+
+<footer>
+  © 2025 TOKAIBASE All rights reserved.
+</footer>
+
+</body>
+</html>
