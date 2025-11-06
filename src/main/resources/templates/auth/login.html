@@ -80,6 +80,8 @@
   </style>
 </head>
 <body>
+	<body style="margin-top: 60px;">
+
 	<div th:replace="~{fragment :: header}"></div>
   <div class="login-container">
     <div class="login-logo">TOKAIBASE</div>
@@ -88,7 +90,7 @@
       <input type="password" placeholder="パスワード" required>
       <button type="submit">ログイン</button>
     </form>
-	<a th:href="@{/signup}">会員登録</a>
+	<a th:href="@{/signup}">新規会員登録はこちら</a>
 	<div th:replace="~{fragment :: footer}"></div>
 	
   </div>

@@ -27,10 +27,12 @@
        <!-- ヘッダーの部品化 -->
        <div th:fragment="header" th:remove="tag">
            <header>
-               <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm samuraitravel-navbar">
-                   <div class="container samuraitravel-container">
+               <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm-TOKAIBASE-navbar">
+				<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm-TOKAIBASE-navbar position-fixed top-0 end-0 p-2" style="z-index: 1000;">
+   
+				<div class="container TOKAIBASE-container">
                        <a class="navbar-brand" th:href="@{/}">
-                           <img class="samuraitravel-logo me-1" th:src="@{/images/logo.png}" alt="SAMURAI Travel">
+                           <img class="TOKABASE-logo me-1" th:src="@{/images/logo.png}" alt="SAMURAI Travel">
                        </a>
 
                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,8 +77,9 @@
 
                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAdmin">
                                        <a class="dropdown-item samuraitravel-dropdown-item" href="#">会員一覧</a>
-                                       <a class="dropdown-item samuraitravel-dropdown-item" href="#">民宿一覧</a>
-
+                                       <a class="dropdown-item samuraitravel-dropdown-item" href="#">キャンプ場一覧</a>
+									   <a class="dropdown-item samuraitravel-dropdown-item" href="#">避難所一覧</a>
+									   
                                        <div class="dropdown-divider"></div>
 
                                        <a class="dropdown-item samuraitravel-dropdown-item" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -96,7 +99,7 @@
        <div th:fragment="footer" th:remove="tag">
            <footer>
                <div class="d-flex justify-content-center align-items-center h-100">
-                   <p class="text-center text-muted small mb-0">&copy; SAMURAI Travel All rights reserved.</p>
+                   <p class="text-center text-muted small mb-0">&copy; TOKABASE All rights reserved.</p>
                </div>
            </footer>
        </div>

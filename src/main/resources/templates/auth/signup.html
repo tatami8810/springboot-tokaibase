@@ -1,192 +1,117 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-   <head>
-       <div th:replace="~{fragment :: meta}"></div>
+<head>
+    <div th:replace="~{fragment :: meta}"></div>
+    <div th:replace="~{fragment :: styles}"></div>
+    <title>会員登録</title>
+</head>
+<body>
+<div class="TOKAIBASE-wrapper">
+    <div th:replace="~{fragment :: header}"></div>
 
-       <div th:replace="~{fragment :: styles}"></div>
+    <main>
+        <div class="container pt-5 pb-5 TOKAIBASE-container" style="max-width: 900px;">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-9 col-md-10">
 
-       <title>会員登録</title>
-   </head>
-   <body>
-       <div class="samuraitravel-wrapper">
-           <div th:replace="~{fragment :: header}"></div>
+                    <div class="bg-light p-5 rounded shadow-sm mb-4">
+                        <h2 class="text-center text-primary fw-bold mb-3 border-bottom pb-2">会員登録</h2>
 
-           <main>
-               <div class="container pt-4 pb-5 samuraitravel-container">
-                   <div class="row justify-content-center">
-                       <div class="col-xl-5 col-lg-6 col-md-8">
+                        <form method="post" th:action="@{/signup}" th:object="${signupForm}" class="mt-4">
 
-                           <h1 class="mb-4 text-center">会員登録</h1>
+                            <!-- 氏名 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">氏名 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('username')}" class="text-danger small" th:errors="*{username}"></div>
+                                <input type="text" class="form-control" th:field="*{username}" placeholder="東海 太郎" autocomplete="name">
+                            </div>
 
-                           <form method="post" th:action="@{/signup}" th:object="${signupForm}">
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="name" class="col-form-label text-md-left fw-bold">
-                                           <div class="d-flex align-items-center">
-                                               <span class="me-1">氏名</span>
-                                               <span class="badge bg-danger">必須</span>
-                                           </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('name')}" class="text-danger small mb-2" th:errors="*{name}"></div>
-                                       <input type="text" class="form-control" th:field="*{name}" autocomplete="name" autofocus placeholder="東海 太郎">
-                                   </div>
-                               </div>
+                            <!-- フリガナ -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">フリガナ <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('furigana')}" class="text-danger small" th:errors="*{furigana}"></div>
+                                <input type="text" class="form-control" th:field="*{furigana}" placeholder="トウカイ タロウ">
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="furigana" class="col-form-label text-md-left fw-bold">
-                                           <div class="d-flex align-items-center">
-                                               <span class="me-1">フリガナ</span>
-                                               <span class="badge bg-danger">必須</span>
-                                           </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('furigana')}" class="text-danger small mb-2" th:errors="*{furigana}"></div>
-                                       <input type="text" class="form-control" th:field="*{furigana}" placeholder="トウカイ タロウ">
-                                   </div>
-                               </div>
+                            <!-- 生年月日 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">生年月日 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('dateofbirth')}" class="text-danger small" th:errors="*{dateofbirth}"></div>
+                                <input type="date" class="form-control" th:field="*{dateofbirth}">
+                            </div>
 
-							   
-							   <div class="form-group row mb-3">
-							                                      <div class="col-md-5">
-							                                          <label for="postalCode" class="col-form-label text-md-left fw-bold">
-							                                               <div class="d-flex align-items-center">
-							                                                   <span class="me-1">生年月日</span>
-							                                                   <span class="badge bg-danger">必須</span>
-							                                               </div>
-							                                           </label>
-							                                      </div>
-							                                      <div class="col-md-7">
-							                                          <div th:if="${#fields.hasErrors('dateofbirth')}" class="text-danger small mb-2" th:errors="*{dateofbirth}"></div>
-							                                          <input type="text" class="form-control" th:field="*{dateofbirth}" autocomplete="dateofbirth" placeholder="2000-10-10">
-							                                      </div>
-							                                  </div>
-							   
-															  
-															  <div class="form-group row mb-3">
-															                                    <div class="col-md-5">
-															                                        <label for="sex" class="col-form-label text-md-left fw-bold">
-															                                             <div class="d-flex align-items-center">
-															                                                 <span class="me-1">性別</span>
-															                                                 <span class="badge bg-danger">必須</span>
-															                                             </div>
-															                                         </label>
-															                                    </div>
-															                                    <div class="col-md-7">
-															                                        <div th:if="${#fields.hasErrors('sex')}" class="text-danger small mb-2" th:errors="*{sex}"></div>
-															                                        <input type="text" class="form-control" th:field="*{sex}" autocomplete="sex" placeholder="男">
-															                                    </div>
-															                                </div>							  
-															  
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="postalCode" class="col-form-label text-md-left fw-bold">
-                                            <div class="d-flex align-items-center">
-                                                <span class="me-1">郵便番号</span>
-                                                <span class="badge bg-danger">必須</span>
-                                            </div>
-                                        </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('postalCode')}" class="text-danger small mb-2" th:errors="*{postalCode}"></div>
-                                       <input type="text" class="form-control" th:field="*{postalCode}" autocomplete="postal-code" placeholder="101-0022">
-                                   </div>
-                               </div>
+                            <!-- 性別 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">性別 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('sex')}" class="text-danger small" th:errors="*{sex}"></div>
+                                <select class="form-select" th:field="*{sex}">
+                                    <option value="" hidden>選択してください</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="address" class="col-form-label text-md-left fw-bold">
-                                            <div class="d-flex align-items-center">
-                                                <span class="me-1">住所</span>
-                                                <span class="badge bg-danger">必須</span>
-                                            </div>
-                                        </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                        <div th:if="${#fields.hasErrors('address')}" class="text-danger small mb-2" th:errors="*{address}"></div>
-                                       <input type="text" class="form-control" th:field="*{address}" placeholder="東京都千代田区神田練塀町300番地">
-                                   </div>
-                               </div>
+                            <!-- 郵便番号 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">郵便番号 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('postalCode')}" class="text-danger small" th:errors="*{postalCode}"></div>
+                                <input type="text" class="form-control" th:field="*{postalCode}" placeholder="101-0022">
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="phoneNumber" class="col-form-label text-md-left fw-bold">
-                                            <div class="d-flex align-items-center">
-                                                <span class="me-1">電話番号</span>
-                                                <span class="badge bg-danger">必須</span>
-                                            </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                        <div th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger small mb-2" th:errors="*{phoneNumber}"></div>
-                                       <input type="text" class="form-control" th:field="*{phoneNumber}" autocomplete="tel-national" placeholder="090-1234-5678">
-                                   </div>
-                               </div>
+                            <!-- 住所 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">住所 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('address')}" class="text-danger small" th:errors="*{address}"></div>
+                                <input type="text" class="form-control" th:field="*{address}" placeholder="東京都千代田区神田練塀町300番地">
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="email" class="col-form-label text-md-left fw-bold">
-                                           <div class="d-flex align-items-center">
-                                               <span class="me-1">メールアドレス</span>
-                                               <span class="badge bg-danger">必須</span>
-                                           </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('email')}" class="text-danger small mb-2" th:errors="*{email}"></div>
-                                       <input type="text" class="form-control" th:field="*{email}" autocomplete="email" placeholder="taro.tokai@example.com">
-                                   </div>
-                               </div>
+                            <!-- 電話番号 -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">電話番号 <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('phoneNumber')}" class="text-danger small" th:errors="*{phoneNumber}"></div>
+                                <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="090-1234-5678">
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="password" class="col-form-label text-md-left fw-bold">
-                                           <div class="d-flex align-items-center">
-                                               <span class="me-1">パスワード</span>
-                                               <span class="badge bg-danger">必須</span>
-                                           </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('password')}" class="text-danger small mb-2" th:errors="*{password}"></div>
-                                       <input type="password" class="form-control" th:field="*{password}" autocomplete="new-password">
-                                   </div>
-                               </div>
+                            <!-- メールアドレス -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">メールアドレス <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('email')}" class="text-danger small" th:errors="*{email}"></div>
+                                <input type="email" class="form-control" th:field="*{email}" placeholder="taro.tokai@example.com">
+                            </div>
 
-                               <div class="form-group row mb-3">
-                                   <div class="col-md-5">
-                                       <label for="passwordConfirmation" class="col-form-label text-md-left fw-bold">
-                                           <div class="d-flex align-items-center">
-                                               <span class="me-1">パスワード（確認用）</span>
-                                               <span class="badge bg-danger">必須</span>
-                                           </div>
-                                       </label>
-                                   </div>
-                                   <div class="col-md-7">
-                                       <div th:if="${#fields.hasErrors('passwordConfirmation')}" class="text-danger small mb-2" th:errors="*{passwordConfirmation}"></div>
-                                       <input type="password" class="form-control" th:field="*{passwordConfirmation}" autocomplete="new-password">
-                                   </div>
-                               </div>
+                            <!-- パスワード -->
+                            <div class="form-group mb-3">
+                                <label class="fw-semibold">パスワード <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('password')}" class="text-danger small" th:errors="*{password}"></div>
+                                <input type="password" class="form-control" th:field="*{password}" autocomplete="new-password">
+                            </div>
 
-                               <div class="d-flex justify-content-center my-4">
-                                   <button type="submit" class="btn text-white shadow-sm w-50 samuraitravel-btn">登録</button>
-                               </div>
-                           </form>
+                            <!-- パスワード確認 -->
+                            <div class="form-group mb-4">
+                                <label class="fw-semibold">パスワード（確認用） <span class="badge bg-danger">必須</span></label>
+                                <div th:if="${#fields.hasErrors('passwordConfirmation')}" class="text-danger small" th:errors="*{passwordConfirmation}"></div>
+                                <input type="password" class="form-control" th:field="*{passwordConfirmation}" autocomplete="new-password">
+                            </div>
 
-                           <div class="text-center">
-                               <a th:href="@{/login}">ログイン</a>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </main>
+                            <!-- ボタン -->
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary fw-bold py-2">登録</button>
+                            </div>
+                        </form>
 
-           <div th:replace="~{fragment :: footer}"></div>
-       </div>
+                        <div class="text-center">
+                            <a th:href="@{/login}">ログインはこちら</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-       <div th:replace="~{fragment :: scripts}"></div>
-   </body>
+    <div th:replace="~{fragment :: footer}"></div>
+</div>
+
+<div th:replace="~{fragment :: scripts}"></div>
+</body>
 </html>
