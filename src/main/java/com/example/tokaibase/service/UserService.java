@@ -4,7 +4,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.tokaibase.entity.Role;
 import com.example.tokaibase.entity.User;
 import com.example.tokaibase.form.SignupForm;
 import com.example.tokaibase.repository.RoleRepository;
@@ -25,18 +24,18 @@ public class UserService {
     @Transactional
     public User createUser(SignupForm signupForm) {
         User user = new User();
-        Role role = roleRepository.findByName("ROLE_GENERAL");
+        
 
-        user.setUsername(signupForm.getUsername());
+        user.setName(signupForm.getName());
         user.setFurigana(signupForm.getFurigana());
-        user.setDateofbirth(signupForm.getDateofbirth());
+        user.setBirthday(signupForm.getBirthday());      
         user.setSex(signupForm.getSex());
         user.setPostal_code(signupForm.getPostalCode());
         user.setAddress(signupForm.getAddress());
         user.setPhonenumber(signupForm.getPhoneNumber());
         user.setEmail(signupForm.getEmail());
         user.setPassword(passwordEncoder.encode(signupForm.getPassword()));
-        user.setRole(role);
+        
         user.setEnabled(false);
 
         return userRepository.save(user);

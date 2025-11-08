@@ -10,13 +10,13 @@ import lombok.Data;
 @Data
 public class SignupForm {
     @NotBlank(message = "氏名を入力してください。")
-    private String username;
+    private String name;
 
     @NotBlank(message = "フリガナを入力してください。")
     private String furigana;
 
     @NotBlank(message = "生年月日を入力してください。")
-    private String dateofbirth;
+    private String birthday;
     
     @NotBlank(message = "性別を入力してください。")
     private String sex;

@@ -16,7 +16,8 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 40px;
-  width: 360px;
+  width: 90%; /* ✅ 画面に合わせて広げる */
+  max-width: 500px; /* ✅ 最大の幅を広くする（お好みで変更） */
   text-align: center;
 }
 
@@ -32,17 +33,17 @@ body {
 .login-container input[type="email"],
 .login-container input[type="password"] {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0;
+  padding: 14px; /* 少し大きめに */
+  margin: 12px 0;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px; /* 読みやすく */
 }
 
 /* ボタン */
 .login-container button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background-color: #00796b;
   color: white;
   border: none;

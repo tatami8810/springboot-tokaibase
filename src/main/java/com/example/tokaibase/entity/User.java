@@ -22,14 +22,14 @@ public class User {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "user_name")
-    private String username;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "furigana")
     private String furigana;
 
-    @Column(name = "date of birth")
-    private String dateofbirth;
+    @Column(name = "birthday")
+    private String birthday;
 
     @Column(name = "sex")
     private String sex;
