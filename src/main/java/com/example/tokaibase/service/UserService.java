@@ -36,17 +36,14 @@ public class UserService {
         user.setEmail(signupForm.getEmail());
         user.setPassword(passwordEncoder.encode(signupForm.getPassword()));
         
-        user.setEnabled(false);
+        user.setEnabled(true);
 
         return userRepository.save(user);
     }
     
- // メールアドレスが登録済みかどうかをチェックする
     public boolean isEmailRegistered(String email) {
-        User user = userRepository.findByEmail(email);
-        return user != null;
-    }   
-    
+        return userRepository.findByEmail(email).isPresent();
+    }
     // パスワードとパスワード（確認用）の入力値が一致するかどうかをチェックする
     public boolean isSamePassword(String password, String passwordConfirmation) {
         return password.equals(passwordConfirmation);

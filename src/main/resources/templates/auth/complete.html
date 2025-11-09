@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <div th:replace="~{fragment :: meta}"></div>
+    <div th:replace="~{fragment :: styles}"></div>
+    <title>登録完了</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #fff);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .complete-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+        }
+        .complete-container h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        .complete-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #00796b;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+        .complete-container a:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+    <div class="complete-container">
+        <h2>会員登録が完了しました！</h2>
+        <p>ご登録ありがとうございます。</p>
+        <a th:href="@{/login}">ログイン画面へ</a>
+    </div>
+</body>
+</html>

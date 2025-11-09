@@ -85,12 +85,14 @@
 	<div th:replace="~{fragment :: header}"></div>
   <div class="login-container">
     <div class="login-logo">TOKAIBASE</div>
-    <form>
-      <input type="email" placeholder="メールアドレス" required>
-      <input type="password" placeholder="パスワード" required>
-      <button type="submit">ログイン</button>
-    </form>
+	
+	<form th:action="@{/login}" method="post">
+	  <input type="email" name="username" placeholder="メールアドレス" required>
+	  <input type="password" name="password" placeholder="パスワード" required>
+	  <button type="submit">ログイン</button>
+	</form>
 	<a th:href="@{/signup}">新規会員登録はこちら</a>
+
 	<div th:replace="~{fragment :: footer}"></div>
 	
   </div>
