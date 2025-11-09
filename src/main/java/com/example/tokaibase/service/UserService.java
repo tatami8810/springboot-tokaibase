@@ -42,7 +42,8 @@ public class UserService {
     }
     
     public boolean isEmailRegistered(String email) {
-        return userRepository.findByEmail(email).isPresent();
+    	User user = userRepository.findByEmail(email);
+        return user != null;  
     }
     // パスワードとパスワード（確認用）の入力値が一致するかどうかをチェックする
     public boolean isSamePassword(String password, String passwordConfirmation) {
