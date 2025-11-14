@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.tokaibase.entity.User;
 import com.example.tokaibase.repository.UserRepository;
+
+
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -37,7 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
             // ロールのリスト用オブジェクトを生成
             Collection<GrantedAuthority> authorities = new ArrayList<>();
-
+            authorities.add(new SimpleGrantedAuthority("ROLE_FREE_MEMBER"));
             // ユーザーのロール名をリストに追加
             //authorities.add(new SimpleGrantedAuthority(userRoleName));
 
