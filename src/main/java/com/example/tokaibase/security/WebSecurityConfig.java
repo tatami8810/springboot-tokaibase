@@ -17,7 +17,7 @@ public class WebSecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
 				.authorizeHttpRequests((requests) -> requests
-						.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/signup/**")
+						.requestMatchers("/", "/home", "/css/**", "/images/**", "/js/**", "/storage/**", "/signup/**")
 						.permitAll() // すべてのユーザーにアクセスを許可するURL
 
 						.requestMatchers("/restaurants/{restaurantId}/reviews/**", "/reservations/**",

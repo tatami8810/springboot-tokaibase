@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>キャンプ場検索</title>
+</head>
+<body>
+
+<h1>キャンプ場検索</h1>
+
+<form action="/camps/result" method="get">
+    <label>都道府県：</label>
+    <input type="text" name="prefecture">
+
+    <label>住所キーワード：</label>
+    <input type="text" name="keyword">
+
+    <button type="submit">検索</button>
+</form>
+
+</body>
+</html>
